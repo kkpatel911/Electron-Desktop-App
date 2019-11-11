@@ -34,6 +34,12 @@ screenShotButton.addEventListener("click", function(e) {
       }
     });
   });
+
+  //   // console.log(event);
+  var myNotification = new window.Notification("Confirmation", {
+    body: "The screenshot has been saved",
+    icon: path.join(__dirname, "../assets/images/icon.jpg")
+  });
 });
 
 console.log("Kishan");
