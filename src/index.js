@@ -25,7 +25,7 @@ screenShotButton.addEventListener("click", function(e) {
       if (source.name === "Entire Screen") {
         const screenShotPath = path.join(
           __dirname,
-          "../assets/images/screenshot.png"
+          "../assets/screenshots/screenshot.png"
         );
 
         fs.writeFile(screenShotPath, source.thumbnail.toPNG(), err => {
