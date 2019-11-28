@@ -2,6 +2,7 @@
 const { desktopCapturer } = require("electron");
 const path = require("path");
 const fs = require("fs");
+var createHash = require("hash-generator");
 
 // // Button that takes screenshot
 const screenShotButton = document.getElementById("notifyBtn");
@@ -25,7 +26,7 @@ screenShotButton.addEventListener("click", function(e) {
       if (source.name === "Entire Screen") {
         const screenShotPath = path.join(
           __dirname,
-          "../assets/screenshots/screenshot.png"
+          `../assets/screenshots/${createHash(4)}.png`
         );
 
         fs.writeFile(screenShotPath, source.thumbnail.toPNG(), err => {
@@ -41,5 +42,11 @@ screenShotButton.addEventListener("click", function(e) {
     icon: path.join(__dirname, "../assets/images/icon.jpg")
   });
 });
+
+var button = document.getElementById("notifyBtn");
+setInterval(function() {
+  button.click();
+  console.log("Cliked");
+}, 60000);
 
 console.log("Kishan");
